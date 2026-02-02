@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine?</title>
+
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffe6eb;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      margin: 0;
+      touch-action: manipulation;
+    }
+
+    .box {
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      color: #e6005c;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      margin: 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #yes {
+      background-color: #ff4d79;
+      color: white;
+    }
+
+    #no {
+      background-color: #999;
+      color: white;
+      position: absolute;
+    }
+
+    #gif {
+      display: none;
+      margin-top: 20px;
+    }
+
+    #gif img {
+      width: 260px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h1>Shruti, will you be my Valentine? 💖</h1>
+    <p>Soch lo… par zyada nahi 😜</p>
+
+    <button id="yes">Haan 💕</button>
+    <button id="no">Nahi 😏</button>
+
+    <div id="gif">
+      <h2>Ab toh haan bol hi diya 😎❤️</h2>
+      <p>Chalo date plan karein? ☕🍰</p>
+      <img 
+        src="https://media.giphy.com/media/l0MYC0LajbaPoEADu/giphy.gif" 
+        alt="Funny Indian Reaction GIF">
+    </div>
+  </div>
+
+  <script>
+    const noButton = document.getElementById("no");
+    const yesButton = document.getElementById("yes");
+    const gifDiv = document.getElementById("gif");
+
+    function moveNoButton() {
+      alert("Arre arre! Nahi ka option thoda busy hai 😜");
+
+      const maxX = window.innerWidth - noButton.offsetWidth - 20;
+      const maxY = window.innerHeight - noButton.offsetHeight - 20;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noButton.style.left = x + "px";
+      noButton.style.top = y + "px";
+    }
+
+    // Desktop
+    noButton.addEventListener("mouseover", moveNoButton);
+
+    // Mobile
+    noButton.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      moveNoButton();
+    });
+
+    yesButton.addEventListener("click", () => {
+      alert("Yayyy! 💃🕺 Ab toh Valentine pakka! ❤️");
+      gifDiv.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
